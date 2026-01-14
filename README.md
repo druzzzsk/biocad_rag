@@ -16,12 +16,12 @@ biocad_rag/
 ├── 📂 utils/                     # Utility scripts
 │   ├── articles_parser.py        # Source document parsing
 │   ├── build_index.py            # Index creation scripts
+|   ├── search.py                 # Retrieval logic (finding chunks)
 │   └── chunking.py               # Text chunking scripts
 │
 ├── articles_eda.ipynb         # EDA: Exploratory Data Analysis of articles
 ├── app.py                     # Streamlit web interface
 ├── rag_core.py                # Main RAG system logic
-├── search.py                  # Search: Retrieval logic (finding chunks)
 └── requirements.txt           # Project dependencies
 ```
 
@@ -40,12 +40,12 @@ Storage for raw data, processed text chunks, and vector indices.
 📂 evaluation/
 Modules for assessing the quality and accuracy of the RAG system.
 
-    📂 llm-as-a-judge/:
-      - `evaluation.py`: The main script evaluates the results based on five criteria. The results are recorded in a table and can be analyzed.
-      - `prompts.py`: These prompts define five specialized evaluation metrics for RAG systems. Each prompt instructs an LLM to assess a specific quality (factual consistency, citation accuracy, coverage, relevance/coherence, or paraphrasing) and return a score from 1 to 5.
-      
-    📂 ragas/:
-      - `ragas_evaluation.py` - Script performs a RAG (Retrieval-Augmented Generation) system evaluation using the RAGAS framework. It processes a predefined set of questions to generate answers and contexts, then calculates scores for faithfulness and answer relevancy metrics.
+  - 📂 llm-as-a-judge/:
+    - `evaluation.py`: The main script evaluates the results based on five criteria. The results are recorded in a table and can be analyzed.
+    - `prompts.py`: These prompts define five specialized evaluation metrics for RAG systems. Each prompt instructs an LLM to assess a specific quality (factual consistency, citation accuracy, coverage, relevance/coherence, or paraphrasing) and return a score from 1 to 5.
+    
+  - 📂 ragas/:
+    - `ragas_evaluation.py` - Script performs a RAG (Retrieval-Augmented Generation) system evaluation using the RAGAS framework. It processes a predefined set of questions to generate answers and contexts, then calculates scores for faithfulness and answer relevancy metrics.
   
   
 📂 utils/
