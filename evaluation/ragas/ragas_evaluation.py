@@ -12,7 +12,7 @@ from ragas.metrics import faithfulness, answer_relevancy
 from langchain_community.chat_models import ChatOllama
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from ragas.run_config import RunConfig 
-from rag_answer import rag_answer, LLM_MODEL, EMB_MODEL
+from rag_core import rag_answer, LLM_MODEL, EMB_MODEL
 
 eval_questions = [
     "What are potential targets for Alzheimer's disease treatment?",

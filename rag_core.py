@@ -30,16 +30,12 @@ Keep citations in-text only. DO NOT list your sources at the end of your answer.
 
 
 def load_meta(path: str) -> list:
-    """Загрузка метаданных чанков"""
     with open(path, 'r', encoding='utf-8') as f:
         return json.load(f)
 
 
 def load_resources():
-    """
-    Загрузка всех ресурсов (для кэширования в Streamlit)
-    Returns: tuple (index, meta, emb_model)
-    """
+
     meta = load_meta(META_PATH)
     index = faiss.read_index(INDEX_PATH)
     emb_model = SentenceTransformer(EMB_MODEL)
@@ -51,7 +47,6 @@ def load_resources():
 
 
 def get_context(top_chunks: list) -> str:
-    """Формирование контекста для LLM"""
     blocks = []
     for i, c in enumerate(top_chunks, start=1):
         header = (
