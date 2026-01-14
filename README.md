@@ -89,7 +89,6 @@ Generates answers from retrieved context with citations
 Efficient similarity search over embeddings
 
 - Index type: IVF + Flat (Inverted File with flat vectors)
-
 - Scalability: Handles millions of vectors efficiently
 
 - Simplicity: Single-file storage for index
