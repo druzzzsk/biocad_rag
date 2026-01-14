@@ -68,30 +68,30 @@ Helper scripts for the Data Engineering and Indexing pipeline.
 `Embedding Model: BGE-base-en-v1.5`
 Converts text into vector representations for semantic search
 
-Dimensions: 768-dimensional embeddings
+- Dimensions: 768-dimensional embeddings
 
-Optimized for retrieval: Specifically fine-tuned for search/retrieval tasks
+- Optimized for retrieval: Specifically fine-tuned for search/retrieval tasks
 
-Efficient: Balanced between quality and computational requirements
+- Efficient: Balanced between quality and computational requirements
 
 `LLM: Qwen2.5-7B-Instruct`
 Generates answers from retrieved context with citations
 
-Strong reasoning: Excellent performance on scientific/technical tasks
+- Strong reasoning: Excellent performance on scientific/technical tasks
 
-Local deployment: Runs efficiently on consumer hardware
+- Local deployment: Runs efficiently on consumer hardware
 
-Medical competence: Trained on diverse corpus including scientific literature
+- Medical competence: Trained on diverse corpus including scientific literature
 
 ## Database & Search
 
 `Vector Database: FAISS`
 Efficient similarity search over embeddings
 
-Index type: IVF + Flat (Inverted File with flat vectors)
+- Index type: IVF + Flat (Inverted File with flat vectors)
 
-Scalability: Handles millions of vectors efficiently
+- Scalability: Handles millions of vectors efficiently
 
-Simplicity: Single-file storage for index
+- Simplicity: Single-file storage for index
 
-Mature: Developed and maintained by Meta AI Research
+- Mature: Developed and maintained by Meta AI Research
