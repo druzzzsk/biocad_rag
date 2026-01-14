@@ -58,9 +58,7 @@ Helper scripts for the Data Engineering and Indexing pipeline.
 #### Root files
 
 - `rag_core.py`: This script implements a core RAG system for Alzheimer's disease research. It retrieves relevant scientific chunks from a FAISS index, generates answers with citations using a local LLM via Ollama, and provides a command-line interface for user interaction. The system enforces strict citation rules, uses sentence-transformers for embeddings, and returns both answers and their corresponding source information.
-
 - `articles_eda.ipynb`: Exploratory data analysis. An analysis of articles in the sample was conducted by year of publication, word count, and most frequent words.
-
 - `app.py`: This module provides a modern web-based interface for the Alzheimer's disease RAG system using Streamlit. The application offers an intuitive UI for querying the research assistant and visualizing results with proper source attribution.
 
 ## Models & Embeddings
@@ -69,18 +67,14 @@ Helper scripts for the Data Engineering and Indexing pipeline.
 Converts text into vector representations for semantic search
 
 - Dimensions: 768-dimensional embeddings
-
 - Optimized for retrieval: Specifically fine-tuned for search/retrieval tasks
-
 - Efficient: Balanced between quality and computational requirements
 
 `LLM: Qwen2.5-7B-Instruct`
 Generates answers from retrieved context with citations
 
 - Strong reasoning: Excellent performance on scientific/technical tasks
-
 - Local deployment: Runs efficiently on consumer hardware
-
 - Medical competence: Trained on diverse corpus including scientific literature
 
 ## Database & Search
@@ -90,9 +84,7 @@ Efficient similarity search over embeddings
 
 - Index type: IVF + Flat (Inverted File with flat vectors)
 - Scalability: Handles millions of vectors efficiently
-
 - Simplicity: Single-file storage for index
-
 - Mature: Developed and maintained by Meta AI Research
 
 ## Questions?
