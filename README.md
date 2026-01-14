@@ -47,7 +47,6 @@ Modules for assessing the quality and accuracy of the RAG system.
   - 📂 ragas/:
     - `ragas_evaluation.py` - Script performs a RAG (Retrieval-Augmented Generation) system evaluation using the RAGAS framework. It processes a predefined set of questions to generate answers and contexts, then calculates scores for faithfulness and answer relevancy metrics.
   
-  
 📂 utils/
 Helper scripts for the Data Engineering and Indexing pipeline.
 
@@ -65,14 +64,15 @@ Helper scripts for the Data Engineering and Indexing pipeline.
 - `app.py`: This module provides a modern web-based interface for the Alzheimer's disease RAG system using Streamlit. The application offers an intuitive UI for querying the research assistant and visualizing results with proper source attribution.
 
 ## Models & Embeddings
-- Embedding Model: BGE-base-en-v1.5
+
+`Embedding Model: BGE-base-en-v1.5`
 Converts text into vector representations for semantic search
 Dimensions: 768-dimensional embeddings
 
 Optimized for retrieval: Specifically fine-tuned for search/retrieval tasks
 Efficient: Balanced between quality and computational requirements
 
-- LLM: Qwen2.5-7B-Instruct
+`LLM: Qwen2.5-7B-Instruct`
 Generates answers from retrieved context with citations
 
 Strong reasoning: Excellent performance on scientific/technical tasks
@@ -80,7 +80,8 @@ Local deployment: Runs efficiently on consumer hardware
 Medical competence: Trained on diverse corpus including scientific literature
 
 ## Database & Search
-- Vector Database: FAISS
+
+`Vector Database: FAISS`
 Efficient similarity search over embeddings
 Index type: IVF + Flat (Inverted File with flat vectors)
 
