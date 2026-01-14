@@ -27,6 +27,8 @@ biocad_rag/
 
 ## Files description
 
+#### Folders
+
 📂 data/
 Storage for raw data, processed text chunks, and vector indices.
 
@@ -38,41 +40,26 @@ Storage for raw data, processed text chunks, and vector indices.
 📂 evaluation/
 Modules for assessing the quality and accuracy of the RAG system.
 
-  📂 llm-as-a-judge/:
-  
-  📂 ragas/:
+    📂 llm-as-a-judge/:
+      - `evaluation.py`: The main script evaluates the results based on five criteria. The results are recorded in a table and can be analyzed.
+      - `prompts.py`: These prompts define five specialized evaluation metrics for RAG systems. Each prompt instructs an LLM to assess a specific quality (factual consistency, citation accuracy, coverage, relevance/coherence, or paraphrasing) and return a score from 1 to 5.
+      
+    📂 ragas/:
+      - `ragas_evaluation.py` - Script performs a RAG (Retrieval-Augmented Generation) system evaluation using the RAGAS framework. It processes a predefined set of questions to generate answers and contexts, then calculates scores for faithfulness and answer relevancy metrics.
   
   
 📂 utils/
 Helper scripts for the Data Engineering and Indexing pipeline.
 
-- `articles_parser.py`: ETL script that reads source documents (e.g., PDFs, XMLs) and converts them into the standard articles.jsonl format.
-- `chunking.py`: Logic for splitting long articles into smaller passages (chunks) to fit within the embedding model's context window.
+- `articles_parser.py`: ETL script that reads source documents and converts them into the standard articles.jsonl format.
+- `chunking.py`: Logic for splitting long articles into smaller passages to fit within the embedding model's context window.
 - `build_index.py`: The indexing script that loads chunks, calculates embeddings using the BGE model, and builds the faiss.index and meta.jsonl files.
+- `search.py`: A script that searches for the most relevant chunks.
 
-Root Files
-- `rag_core.py` (The Backend Engine)
+#### Root files
 
-Purpose: The central logic of the application.
-Key Functions:
-Loads resources: FAISS index, Metadata, and the Embedding Model (BAAI/bge-base-en-v1.5).
-rag_answer(): The main pipeline function. It converts the user query to a vector, searches for the top-k most relevant chunks, constructs the prompt, and queries the LLM (qwen2.5:7b-instruct).
-Citation Handling: Automatically extracts references (e.g., [1]) from the LLM response and maps them back to the real source documents.
-System Prompt: Defines the persona as a "biomedical research assistant" focused on Alzheimer's disease, enforcing strict rules about not hallucinating and using only provided context.
-app.py (The Frontend Interface)
+- `rag_core.py`: This script implements a core RAG system for Alzheimer's disease research. It retrieves relevant scientific chunks from a FAISS index, generates answers with citations using a local LLM via Ollama, and provides a command-line interface for user interaction. The system enforces strict citation rules, uses sentence-transformers for embeddings, and returns both answers and their corresponding source information.
 
-Purpose: A web-based user interface built with Streamlit.
-Key Features:
-Sidebar Settings: Allows users to adjust Top-K (number of retrieved documents) and toggle context visibility.
-Chat Interface: Accepts user queries and displays the LLM's generated answer.
-Dynamic UI: Renders cited sources in card format and provides expandable sections to inspect the raw text chunks used for the answer.
-Session State: Maintains chat history and query counters.
-search.py
+- `articles_eda.ipynb`: Exploratory data analysis. An analysis of articles in the sample was conducted by year of publication, word count, and most frequent words.
 
-Purpose: Standalone logic for the Retrieval component. It likely contains the specific functions to interact with the FAISS index, independent of the generation step (useful for debugging the search quality without running the LLM).
-articles_eda.ipynb
-
-Purpose: A Jupyter Notebook for Exploratory Data Analysis. Used to visualize chunk length distributions, vocabulary statistics, and ensure data quality before indexing.
-requirements.txt
-
-Purpose: Lists all Python dependencies required to run the project (e.g., streamlit, faiss-cpu, sentence-transformers, langchain, ragas, ollama).
+- `app.py`: This module provides a modern web-based interface for the Alzheimer's disease RAG system using Streamlit. The application offers an intuitive UI for querying the research assistant and visualizing results with proper source attribution.
